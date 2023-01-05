@@ -1,0 +1,61 @@
+﻿@page
+@model MJ_Rent_Login.Pages.BorrowRecords.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowRecord[0].RoomId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowRecord[0].UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowRecord[0].BorrowDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowRecord[0].PrevBorrowTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowRecord[0].ActualBorrowTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BorrowRecord) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevBorrowTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualBorrowTime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

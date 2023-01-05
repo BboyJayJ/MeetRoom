@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MJ_Rent_Login.props" />
+</Project>
