@@ -12,7 +12,7 @@ namespace MJ_Rent_Login.Pages.Reserves
 {
     public class IndexModel : PageModel
     {
-        private readonly MJ_Rent_Login.Data.ApplicationDbContext _context;
+        public readonly MJ_Rent_Login.Data.ApplicationDbContext _context;
 
         public IndexModel(MJ_Rent_Login.Data.ApplicationDbContext context)
         {
@@ -21,12 +21,28 @@ namespace MJ_Rent_Login.Pages.Reserves
 
         public IList<Reserve> Reserve { get;set; } = default!;
 
+        public List<string> RoomName = new();
+
         public async Task OnGetAsync()
         {
             if (_context.Reserve != null)
             {
                 Reserve = await _context.Reserve.ToListAsync();
+
             }
+            /*foreach (var reserve in Reserve)
+            {
+                int roomId =reserve.RoomId;
+                var queryRoomName = from m in _context.MeetRoom
+                                    where m.Id == roomId
+                                    select m.Name;
+                RoomName.Add(queryRoomName.First());
+            }*/
         }
+
+        
+        
+
+        
     }
 }

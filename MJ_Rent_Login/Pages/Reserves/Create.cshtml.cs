@@ -24,13 +24,15 @@ namespace MJ_Rent_Login.Pages.Reserves
         }
 
         public async Task<IActionResult> OnGetAsync()
-        { 
-            IQueryable<int> genreQuery = from m in _context.MeetRoom
-                                            orderby m.Id
-                                            select m.Id;
+        {
+            //var roomQuery = from m in _context.MeetRoom
+            //               select m;
 
+            var roomQuery = from m in _context.MeetRoom
+                            select new { m.Id, m.Name };
 
-            Ids = new SelectList(await genreQuery.Distinct().ToListAsync());
+            Ids = new SelectList(roomQuery, "Id", "Name");
+            //Ids = new SelectList(await roomQuery.Select(x=> x.Name).Distinct().ToListAsync());
 
             return Page();
         }

@@ -31,9 +31,18 @@
     </thead>
     <tbody>
 @foreach (var item in Model.Reserve) {
+            // 在此做 LINQ Query
+            int roomId = item.RoomId;
+
+            var queryRoomName = from m in Model._context.MeetRoom
+                                where m.Id == roomId
+                                select m.Name;
+
+            string RoomName = (queryRoomName.First());
+
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RoomId)
+                @RoomName (@Html.DisplayFor(modelItem => item.RoomId))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserId)
