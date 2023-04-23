@@ -12,7 +12,7 @@ namespace MJ_Rent_Login.Pages.BorrowRecords
 {
     public class IndexModel : PageModel
     {
-        private readonly MJ_Rent_Login.Data.ApplicationDbContext _context;
+        public readonly MJ_Rent_Login.Data.ApplicationDbContext _context;
 
         public IndexModel(MJ_Rent_Login.Data.ApplicationDbContext context)
         {

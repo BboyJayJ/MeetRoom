@@ -15,24 +15,39 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="BorrowRecord.RoomId" class="control-label"></label>
-                <input asp-for="BorrowRecord.RoomId" class="form-control" />
+                <!--<input asp-for="BorrowRecord.RoomId" class="form-control" />-->
                 <span asp-validation-for="BorrowRecord.RoomId" class="text-danger"></span>
+                <select asp-for="BorrowRecord.RoomId" asp-items="Model.Id1" class="form-control"></select>
             </div>
+
             <div class="form-group">
                 <label asp-for="BorrowRecord.UserId" class="control-label"></label>
-                <input asp-for="BorrowRecord.UserId" class="form-control" />
+                <!--<input asp-for="BorrowRecord.UserId" class="form-control" />-->
                 <span asp-validation-for="BorrowRecord.UserId" class="text-danger"></span>
+                <select asp-for="BorrowRecord.UserId" asp-items="Model.UserId1" class="form-control"></select>
             </div>
+
             <div class="form-group">
                 <label asp-for="BorrowRecord.BorrowDateTime" class="control-label"></label>
                 <input asp-for="BorrowRecord.BorrowDateTime" class="form-control" />
                 <span asp-validation-for="BorrowRecord.BorrowDateTime" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="BorrowRecord.PrevBorrowTime" class="control-label"></label>
-                <input asp-for="BorrowRecord.PrevBorrowTime" class="form-control" />
+                <!--<input asp-for="BorrowRecord.PrevBorrowTime" class="form-control" />-->
                 <span asp-validation-for="BorrowRecord.PrevBorrowTime" class="text-danger"></span>
+                <select asp-for="BorrowRecord.PrevBorrowTime" class="form-control">
+                    <option value="30">30分鐘</option>
+                    <option value="60">60分鐘</option>
+                    <option value="90">90分鐘</option>
+                    <option value="120">120分鐘</option>
+                    <option value="150">150分鐘</option>
+                    <option value="180">180分鐘</option>
+                    <option value="480">480分鐘</option>
+                </select>
             </div>
+
             <div class="form-group">
                 <label asp-for="BorrowRecord.ActualBorrowTime" class="control-label"></label>
                 <input asp-for="BorrowRecord.ActualBorrowTime" class="form-control" />

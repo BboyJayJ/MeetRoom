@@ -34,9 +34,17 @@
     </thead>
     <tbody>
 @foreach (var item in Model.BorrowRecord) {
+            int roomId1 = item.RoomId;
+
+            var queryRoomName1 = from room in Model._context.MeetRoom
+                                where room.Id == roomId1
+                                select room.Name;
+
+            //string RoomName = (queryRoomName1.First());
+            string RoomName1 = queryRoomName1.FirstOrDefault();
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RoomId)
+                 @RoomName1 (@Html.DisplayFor(modelItem => item.RoomId))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserId)
