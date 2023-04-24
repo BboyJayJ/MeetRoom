@@ -6,9 +6,9 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h3>編輯</h3>
 
-<h4>BorrowRecord</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,7 +17,7 @@
             <input type="hidden" asp-for="BorrowRecord.Id" />
             <div class="form-group">
                 <label asp-for="BorrowRecord.RoomId" class="control-label"></label>
-                <input asp-for="BorrowRecord.RoomId" class="form-control" />
+                <input asp-for="BorrowRecord.RoomId" readonly class="form-control" />
                 <span asp-validation-for="BorrowRecord.RoomId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,14 +41,14 @@
                 <span asp-validation-for="BorrowRecord.ActualBorrowTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="儲存" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">返回列表</a>
 </div>
 
 @section Scripts {
